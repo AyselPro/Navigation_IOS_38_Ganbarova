@@ -12,6 +12,7 @@ final class ProfileViewController: UIViewController {
     private let profileHeaderView: ProfileHeaderView = ProfileHeaderView()
     private var arrayImages = [String]()
     private let tableView = UITableView()
+    private let newButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +21,11 @@ final class ProfileViewController: UIViewController {
         
         for i in 1...30 {
             let string = "image-\(i)"
-            guard let image = UIImage(named: string) else { continue }
+            guard let _ = UIImage(named: string) else { continue }
             arrayImages.append(string)
         }
+        setupView()
+        newButton.setTitle("Новая кнопка", for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,26 +33,31 @@ final class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        view.addSubviews(profileHeaderView, tableView)
+    private func setupView() {
+        view.addSubviews(profileHeaderView, tableView, newButton)
         
         NSLayoutConstraint.activate([
             profileHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            profileHeaderView.heightAnchor.constraint(equalToConstant: 220),
 
             tableView.topAnchor.constraint(equalTo: profileHeaderView.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            newButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            newButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            newButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
         ])
-        
-        tableView.dataSource = self
-        tableView.delegate = self
         
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.identifier)
         tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: PhotoTableViewCell.identifier)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorStyle = .none
     }
 }
@@ -94,37 +102,4 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
-
-
-//MARK: - SwiftUI
-import SwiftUI
-struct ProfileViewController_Provider : PreviewProvider {
-    static var previews: some View {
-        ContainterView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainterView: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> UIViewController {
-            return ProfileViewController()
-        }
-        
-        typealias UIViewControllerType = UIViewController
-        
-        
-        let viewController = ProfileViewController()
-        func makeUIViewController(context: UIViewControllerRepresentableContext<ProfileViewController_Provider.ContainterView>) -> ProfileViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: ProfileViewController_Provider.ContainterView.UIViewControllerType, context: UIViewControllerRepresentableContext<ProfileViewController_Provider.ContainterView>) {
-            
-        }
-    }
-}
-
-
-
-
-
-
 

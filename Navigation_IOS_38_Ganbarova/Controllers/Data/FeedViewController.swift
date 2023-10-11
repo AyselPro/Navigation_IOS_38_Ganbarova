@@ -9,61 +9,47 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-   private var post = Post(title: "Мой пост")
+    private var post = Post(title: "Мой пост")
+    private let stackView: UIStackView = UIStackView()
     
-    private lazy var button: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .blue
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 12
-        button.setTitle("Перейти на пост", for: .normal)
-        button.setTitleColor(.lightGray, for: .normal)
-        
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        
-        return button
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        stackView.axis = .vertical
         view.backgroundColor = .lightGray
-
-        self.view.addSubview(self.button)
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100
-                                               ),
-            self.button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20
-                                                ),
-            self.button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20
-                                                 ),
-            self.button.heightAnchor.constraint(equalToConstant: 50)
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         
+        let firstButton = UIButton()
+        let secondButton = UIButton()
+        
+        firstButton.setTitle("Первая кнопка", for: .normal)
+        secondButton.setTitle("Вторая кнопка", for: .normal)
+        
+        stackView.addArrangedSubview(firstButton)
+        stackView.addArrangedSubview(secondButton)
+        stackView.spacing = 10
+        
+        firstButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        secondButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
-    @objc func buttonAction(_ sender: UIButton) {
+    @objc private func buttonAction() {
         let postViewController = PostViewController(post: post)
-        postViewController.modalTransitionStyle = .flipHorizontal
-        postViewController.modalPresentationStyle = .fullScreen
         
+        //1
         self.navigationController?.pushViewController(postViewController, animated: true)
-    }
         
+        //2
+//        postViewController.modalTransitionStyle = .flipHorizontal
+//        postViewController.modalPresentationStyle = .fullScreen
+//        present(postViewController, animated: true)
+    }
 }
 
-   
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
 

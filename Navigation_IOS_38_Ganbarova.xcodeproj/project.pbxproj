@@ -83,20 +83,12 @@
 			isa = PBXGroup;
 			children = (
 				F9A7F30E2ACEBD7C0008C4D4 /* Cells */,
-				F9A7F3062ACEB9F90008C4D4 /* AppDelegate */,
 				F9A7F2F22ACEB9BA0008C4D4 /* AppDelegate.swift */,
 				F9A7F2F42ACEB9BA0008C4D4 /* SceneDelegate.swift */,
 				F9A7F3082ACEBC1D0008C4D4 /* Controllers */,
 				F9A7F3072ACEBA0E0008C4D4 /* Support */,
 			);
 			path = Navigation_IOS_38_Ganbarova;
-			sourceTree = "<group>";
-		};
-		F9A7F3062ACEB9F90008C4D4 /* AppDelegate */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		F9A7F3072ACEBA0E0008C4D4 /* Support */ = {
