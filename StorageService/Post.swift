@@ -12,3 +12,8 @@ struct Post {
     var title: String
 }
 
+public class StorageService {
+    public static func cropPhoto() {
+        print(#function)
+    }
+}

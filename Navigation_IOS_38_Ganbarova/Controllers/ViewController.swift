@@ -6,12 +6,38 @@
 //
 
 import UIKit
+import StorageService
 
-class ViewController: UIViewController {
+public class ViewController: UIViewController {
     
-    override func viewDidLoad() {
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        StorageService.cropPhoto()
+        #if DEBUG
+        view.backgroundColor = .green
+        #else
+        view.backgroundColor = .red
+        #endif
+       
+       
     }
+    
+    private func tapBurButtonItamAction() {
+        
+    }
+        
+    private func buttonAction() {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
     /*
      // MARK: - Navigation
      
