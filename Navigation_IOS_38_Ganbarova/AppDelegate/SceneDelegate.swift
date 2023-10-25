@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func createProfileViewController() -> UINavigationController {
-        let profileViewController = ProfileViewController()
+        let profileViewController = LogInViewController()
         profileViewController.title = "Профиль"
         profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.circle"), tag: 1)
         return UINavigationController(rootViewController: profileViewController)
@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         
-        UITabBar.appearance().backgroundColor = .systemBlue
+        UITabBar.appearance().backgroundColor = .systemGray6
         tabBarController.viewControllers = [createFeedViewController(), createProfileViewController()]
         
         return tabBarController

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C29C32F2AE3FC3700622034 /* String-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29C32E2AE3FC3700622034 /* String-Ext.swift */; };
+		F93BCF902ADEC21900733DF6 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93BCF8F2ADEC21900733DF6 /* LogInViewController.swift */; };
+		F93BCF942AE0306F00733DF6 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93BCF932AE0306F00733DF6 /* Extension+UIViewController.swift */; };
 		F9A7F2F32ACEB9BA0008C4D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F22ACEB9BA0008C4D4 /* AppDelegate.swift */; };
 		F9A7F2F52ACEB9BA0008C4D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F42ACEB9BA0008C4D4 /* SceneDelegate.swift */; };
 		F9A7F2F72ACEB9BA0008C4D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F62ACEB9BA0008C4D4 /* ViewController.swift */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C29C32E2AE3FC3700622034 /* String-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Ext.swift"; sourceTree = "<group>"; };
+		F93BCF8F2ADEC21900733DF6 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		F93BCF932AE0306F00733DF6 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		F9A7F2EF2ACEB9BA0008C4D4 /* Navigation_IOS_38_Ganbarova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation_IOS_38_Ganbarova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A7F2F22ACEB9BA0008C4D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A7F2F42ACEB9BA0008C4D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C29C32D2AE3FC0300622034 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5C29C32E2AE3FC3700622034 /* String-Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F9A7F2E62ACEB9BA0008C4D4 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +96,8 @@
 		F9A7F2F12ACEB9BA0008C4D4 /* Navigation_IOS_38_Ganbarova */ = {
 			isa = PBXGroup;
 			children = (
+				5C29C32D2AE3FC0300622034 /* Extensions */,
+				F9BEFE502ADE7E23004D2F56 /* AppDelegate */,
 				F9A7F30E2ACEBD7C0008C4D4 /* Cells */,
 				F9A7F3082ACEBC1D0008C4D4 /* Controllers */,
 				F9A7F3072ACEBA0E0008C4D4 /* Support */,
@@ -114,6 +130,7 @@
 			children = (
 				F9A7F30A2ACEBC850008C4D4 /* ProfileViewController.swift */,
 				F9A7F30C2ACEBCEF0008C4D4 /* ProfileHeaderView.swift */,
+				F93BCF8F2ADEC21900733DF6 /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -136,7 +153,7 @@
 				F9A7F3182ACEBEBE0008C4D4 /* UITableViewCell-Ext.swift */,
 				F9A7F31A2ACEBF0B0008C4D4 /*  UIStackView-Ext.swift */,
 				F9A7F31C2ACEBF560008C4D4 /* UICollectionViewCell.swift */,
-				F9BEFE502ADE7E23004D2F56 /* AppDelegate */,
+				F93BCF932AE0306F00733DF6 /* Extension+UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,6 +251,8 @@
 			files = (
 				F9A7F3122ACEBDE00008C4D4 /* PhotoTableViewCell.swift in Sources */,
 				F9A7F3142ACEBE200008C4D4 /* PhotoCollectionViewCell.swift in Sources */,
+				F93BCF942AE0306F00733DF6 /* Extension+UIViewController.swift in Sources */,
+				F93BCF902ADEC21900733DF6 /* LogInViewController.swift in Sources */,
 				F9A7F31D2ACEBF560008C4D4 /* UICollectionViewCell.swift in Sources */,
 				F9A7F3202ACEBFAF0008C4D4 /* PostViewController.swift in Sources */,
 				F9A7F3282ACEC09F0008C4D4 /* Post.swift in Sources */,
@@ -242,6 +261,7 @@
 				F9A7F3262ACEC0540008C4D4 /* FeedViewController.swift in Sources */,
 				F9A7F2F72ACEB9BA0008C4D4 /* ViewController.swift in Sources */,
 				F9A7F2F32ACEB9BA0008C4D4 /* AppDelegate.swift in Sources */,
+				5C29C32F2AE3FC3700622034 /* String-Ext.swift in Sources */,
 				F9A7F30D2ACEBCEF0008C4D4 /* ProfileHeaderView.swift in Sources */,
 				F9A7F3242ACEC0240008C4D4 /* PhotosViewController.swift in Sources */,
 				F9A7F3172ACEBE850008C4D4 /* UIView-Ext.swift in Sources */,
