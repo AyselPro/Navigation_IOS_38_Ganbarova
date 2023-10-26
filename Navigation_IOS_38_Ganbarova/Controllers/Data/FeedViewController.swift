@@ -9,7 +9,7 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    private var post = Post(title: "Мой пост")
+
     private let stackView: UIStackView = UIStackView()
     
     
@@ -40,11 +40,10 @@ class FeedViewController: UIViewController {
     }
     
     @objc private func buttonAction() {
-        let postViewController = PostViewController(post: post)
+        
         
         //1
-        self.navigationController?.pushViewController(postViewController, animated: true)
-        
+       
         //2
 //        postViewController.modalTransitionStyle = .flipHorizontal
 //        postViewController.modalPresentationStyle = .fullScreen

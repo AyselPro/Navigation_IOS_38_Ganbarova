@@ -8,7 +8,7 @@
 import UIKit
 
 final class PhotosCollectionViewCell: UICollectionViewCell {
-    private var photoImageView:UIImageView = {
+    private var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
