@@ -54,7 +54,7 @@ class LogInViewController: UIViewController {
         return stackView
     }()
     
-    private let button: UIButton = {
+    private lazy var button: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 10
         button.setTitle("Log In", for: .normal)
@@ -65,7 +65,7 @@ class LogInViewController: UIViewController {
         button.setTitleColor(.white.withAlphaComponent(0.8), for: .disabled)
         
         //
-        button.addTarget(LogInViewController.self, action: #selector(buttonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
