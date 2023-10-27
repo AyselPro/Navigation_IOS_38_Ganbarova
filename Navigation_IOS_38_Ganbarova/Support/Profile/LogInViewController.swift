@@ -50,7 +50,10 @@ class LogInViewController: UIViewController {
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.backgroundColor = .clear
-        
+        stackView.layer.cornerRadius = 10
+        stackView.layer.masksToBounds = true
+        stackView.layer.borderWidth = 0.5
+        view.clipsToBounds = true
         return stackView
     }()
     
