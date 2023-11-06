@@ -9,8 +9,9 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    private var post = Post(title: "Мой пост")
-    private let stackView: UIStackView = UIStackView()
+    private var post = Post(author: "", description: "", image: "", likes: 0, views: 0)
+    
+    private let stackView: UIStackView = .init()
     
     
     override func viewDidLoad() {
