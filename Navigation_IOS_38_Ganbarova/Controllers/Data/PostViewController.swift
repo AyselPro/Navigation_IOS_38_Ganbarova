@@ -20,7 +20,7 @@ class PostViewController: UIViewController {
     
     var post: Post!
     var titlePost: String {
-        return post.title
+        return ""
     }
     
     override func viewDidLoad() {

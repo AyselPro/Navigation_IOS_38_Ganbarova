@@ -2,7 +2,7 @@
 //  String-Ext.swift
 //  Navigation_IOS_38_Ganbarova
 //
-//  Created by Алмаз Рахматуллин on 21.10.2023.
+//  Created by Aysel on 21.10.2023.
 //
 
 import UIKit
