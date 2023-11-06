@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,13 +13,11 @@
 		F93BCFE52AE263FB00733DF6 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93BCFDF2AE263FB00733DF6 /* StorageService.framework */; };
 		F93BCFE62AE263FB00733DF6 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F93BCFDF2AE263FB00733DF6 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F93BCFEB2AE2642500733DF6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93BCFEA2AE2642500733DF6 /* Post.swift */; };
-		F9665D472AE96764001D04A8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D462AE96764001D04A8 /* SnapKit */; };
-		F9665D492AE96764001D04A8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D482AE96764001D04A8 /* SnapKit-Dynamic */; };
 		F9665D4C2AE96A45001D04A8 /* PackageDescription in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D4B2AE96A45001D04A8 /* PackageDescription */; };
 		F9665D4E2AE96A45001D04A8 /* SwiftPM in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D4D2AE96A45001D04A8 /* SwiftPM */; };
 		F9665D502AE96A45001D04A8 /* SwiftPM-auto in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D4F2AE96A45001D04A8 /* SwiftPM-auto */; };
 		F9665D532AE97717001D04A8 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D522AE97717001D04A8 /* iOSIntPackage */; };
-		F9665D562AEA5531001D04A8 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9665D552AEA5531001D04A8 /* PostTableViewCell.swift */; };
+		F9665D6F2AF671E9001D04A8 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9665D6E2AF671E9001D04A8 /* PostTableViewCell.swift */; };
 		F9A7F2F32ACEB9BA0008C4D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F22ACEB9BA0008C4D4 /* AppDelegate.swift */; };
 		F9A7F2F52ACEB9BA0008C4D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F42ACEB9BA0008C4D4 /* SceneDelegate.swift */; };
 		F9A7F2F72ACEB9BA0008C4D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F62ACEB9BA0008C4D4 /* ViewController.swift */; };
@@ -74,7 +72,7 @@
 		F93BCFDF2AE263FB00733DF6 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93BCFE12AE263FB00733DF6 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		F93BCFEA2AE2642500733DF6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		F9665D552AEA5531001D04A8 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		F9665D6E2AF671E9001D04A8 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		F9A7F2EF2ACEB9BA0008C4D4 /* Navigation_IOS_38_Ganbarova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation_IOS_38_Ganbarova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A7F2F22ACEB9BA0008C4D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A7F2F42ACEB9BA0008C4D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,11 +109,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9665D502AE96A45001D04A8 /* SwiftPM-auto in Frameworks */,
-				F9665D472AE96764001D04A8 /* SnapKit in Frameworks */,
 				F93BCFE52AE263FB00733DF6 /* StorageService.framework in Frameworks */,
 				E7F71A42067333E242AD442A /* Pods_Navigation_IOS_38_Ganbarova.framework in Frameworks */,
 				F9665D4E2AE96A45001D04A8 /* SwiftPM in Frameworks */,
-				F9665D492AE96764001D04A8 /* SnapKit-Dynamic in Frameworks */,
 				F9665D4C2AE96A45001D04A8 /* PackageDescription in Frameworks */,
 				F9665D532AE97717001D04A8 /* iOSIntPackage in Frameworks */,
 			);
@@ -218,10 +214,10 @@
 			isa = PBXGroup;
 			children = (
 				F9A7F30F2ACEBD9A0008C4D4 /* PhotosTableViewCell.swift */,
-				F9665D552AEA5531001D04A8 /* PostTableViewCell.swift */,
 				F9A7F3112ACEBDE00008C4D4 /* PhotoTableViewCell.swift */,
 				F9A7F3132ACEBE200008C4D4 /* PhotoCollectionViewCell.swift */,
 				F9A7F3152ACEBE6B0008C4D4 /* Extensions */,
+				F9665D6E2AF671E9001D04A8 /* PostTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -299,8 +295,6 @@
 			);
 			name = Navigation_IOS_38_Ganbarova;
 			packageProductDependencies = (
-				F9665D462AE96764001D04A8 /* SnapKit */,
-				F9665D482AE96764001D04A8 /* SnapKit-Dynamic */,
 				F9665D4B2AE96A45001D04A8 /* PackageDescription */,
 				F9665D4D2AE96A45001D04A8 /* SwiftPM */,
 				F9665D4F2AE96A45001D04A8 /* SwiftPM-auto */,
@@ -329,7 +323,7 @@
 				};
 			};
 			buildConfigurationList = F9A7F2EA2ACEB9BA0008C4D4 /* Build configuration list for PBXProject "Navigation_IOS_38_Ganbarova" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -338,7 +332,6 @@
 			);
 			mainGroup = F9A7F2E62ACEB9BA0008C4D4;
 			packageReferences = (
-				F9665D452AE96764001D04A8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F9665D4A2AE96A45001D04A8 /* XCRemoteSwiftPackageReference "swift-package-manager" */,
 				F9665D512AE97717001D04A8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 			);
@@ -450,7 +443,7 @@
 			files = (
 				F9A7F3122ACEBDE00008C4D4 /* PhotoTableViewCell.swift in Sources */,
 				F9A7F3142ACEBE200008C4D4 /* PhotoCollectionViewCell.swift in Sources */,
-				F9665D562AEA5531001D04A8 /* PostTableViewCell.swift in Sources */,
+				F9665D6F2AF671E9001D04A8 /* PostTableViewCell.swift in Sources */,
 				F9A7F31D2ACEBF560008C4D4 /* UICollectionViewCell.swift in Sources */,
 				F9A7F3202ACEBFAF0008C4D4 /* PostViewController.swift in Sources */,
 				F9A7F3102ACEBD9A0008C4D4 /* PhotosTableViewCell.swift in Sources */,
@@ -689,6 +682,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exercise.first.Navigation-IOS-38-Ganbarova";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -720,6 +714,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exercise.first.Navigation-IOS-38-Ganbarova";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -765,14 +760,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F9665D452AE96764001D04A8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		F9665D4A2AE96A45001D04A8 /* XCRemoteSwiftPackageReference "swift-package-manager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-package-manager";
@@ -792,16 +779,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F9665D462AE96764001D04A8 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9665D452AE96764001D04A8 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		F9665D482AE96764001D04A8 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9665D452AE96764001D04A8 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
 		F9665D4B2AE96A45001D04A8 /* PackageDescription */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F9665D4A2AE96A45001D04A8 /* XCRemoteSwiftPackageReference "swift-package-manager" */;

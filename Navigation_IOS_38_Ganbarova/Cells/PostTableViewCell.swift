@@ -2,28 +2,17 @@
 //  PostTableViewCell.swift
 //  Navigation_IOS_38_Ganbarova
 //
-//  Created by Aysel on 26.10.2023.
+//  Created by Aysel on 04.11.2023.
 //
 
-import UIKit
 import iOSIntPackage
+import UIKit
 
-final class PostTableViewCell: UITableViewCell {
+struct ImageProcessor {
+    var name: String
+    var photo = UIImage()
+}
+
+func processImage() {
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    struct ImageProcessor {
-        
-        var title: String
-        
-        private func setupView() {}
-        
-    }
 }
