@@ -13,11 +13,9 @@
 		F93BCFE52AE263FB00733DF6 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93BCFDF2AE263FB00733DF6 /* StorageService.framework */; };
 		F93BCFE62AE263FB00733DF6 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F93BCFDF2AE263FB00733DF6 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F93BCFEB2AE2642500733DF6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93BCFEA2AE2642500733DF6 /* Post.swift */; };
-		F9665D4C2AE96A45001D04A8 /* PackageDescription in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D4B2AE96A45001D04A8 /* PackageDescription */; };
-		F9665D4E2AE96A45001D04A8 /* SwiftPM in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D4D2AE96A45001D04A8 /* SwiftPM */; };
-		F9665D502AE96A45001D04A8 /* SwiftPM-auto in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D4F2AE96A45001D04A8 /* SwiftPM-auto */; };
 		F9665D532AE97717001D04A8 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = F9665D522AE97717001D04A8 /* iOSIntPackage */; };
 		F9665D6F2AF671E9001D04A8 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9665D6E2AF671E9001D04A8 /* PostTableViewCell.swift */; };
+		F9665D712AFC0289001D04A8 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9665D702AFC0289001D04A8 /* Filters.swift */; };
 		F9A7F2F32ACEB9BA0008C4D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F22ACEB9BA0008C4D4 /* AppDelegate.swift */; };
 		F9A7F2F52ACEB9BA0008C4D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F42ACEB9BA0008C4D4 /* SceneDelegate.swift */; };
 		F9A7F2F72ACEB9BA0008C4D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F62ACEB9BA0008C4D4 /* ViewController.swift */; };
@@ -73,6 +71,7 @@
 		F93BCFE12AE263FB00733DF6 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		F93BCFEA2AE2642500733DF6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F9665D6E2AF671E9001D04A8 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		F9665D702AFC0289001D04A8 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		F9A7F2EF2ACEB9BA0008C4D4 /* Navigation_IOS_38_Ganbarova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation_IOS_38_Ganbarova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A7F2F22ACEB9BA0008C4D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A7F2F42ACEB9BA0008C4D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,11 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9665D502AE96A45001D04A8 /* SwiftPM-auto in Frameworks */,
 				F93BCFE52AE263FB00733DF6 /* StorageService.framework in Frameworks */,
 				E7F71A42067333E242AD442A /* Pods_Navigation_IOS_38_Ganbarova.framework in Frameworks */,
-				F9665D4E2AE96A45001D04A8 /* SwiftPM in Frameworks */,
-				F9665D4C2AE96A45001D04A8 /* PackageDescription in Frameworks */,
 				F9665D532AE97717001D04A8 /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +214,7 @@
 				F9A7F3132ACEBE200008C4D4 /* PhotoCollectionViewCell.swift */,
 				F9A7F3152ACEBE6B0008C4D4 /* Extensions */,
 				F9665D6E2AF671E9001D04A8 /* PostTableViewCell.swift */,
+				F9665D702AFC0289001D04A8 /* Filters.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -295,9 +292,6 @@
 			);
 			name = Navigation_IOS_38_Ganbarova;
 			packageProductDependencies = (
-				F9665D4B2AE96A45001D04A8 /* PackageDescription */,
-				F9665D4D2AE96A45001D04A8 /* SwiftPM */,
-				F9665D4F2AE96A45001D04A8 /* SwiftPM-auto */,
 				F9665D522AE97717001D04A8 /* iOSIntPackage */,
 			);
 			productName = Navigation_IOS_38_Ganbarova;
@@ -332,7 +326,6 @@
 			);
 			mainGroup = F9A7F2E62ACEB9BA0008C4D4;
 			packageReferences = (
-				F9665D4A2AE96A45001D04A8 /* XCRemoteSwiftPackageReference "swift-package-manager" */,
 				F9665D512AE97717001D04A8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 			);
 			productRefGroup = F9A7F2F02ACEB9BA0008C4D4 /* Products */;
@@ -456,6 +449,7 @@
 				F9A7F3172ACEBE850008C4D4 /* UIView-Ext.swift in Sources */,
 				F9A7F3222ACEBFE00008C4D4 /* InfoViewController.swift in Sources */,
 				F9A7F31B2ACEBF0B0008C4D4 /*  UIStackView-Ext.swift in Sources */,
+				F9665D712AFC0289001D04A8 /* Filters.swift in Sources */,
 				F9A7F30B2ACEBC850008C4D4 /* ProfileViewController.swift in Sources */,
 				F9A7F2F52ACEB9BA0008C4D4 /* SceneDelegate.swift in Sources */,
 			);
@@ -760,14 +754,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F9665D4A2AE96A45001D04A8 /* XCRemoteSwiftPackageReference "swift-package-manager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-package-manager";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.0;
-			};
-		};
 		F9665D512AE97717001D04A8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage";
@@ -779,21 +765,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F9665D4B2AE96A45001D04A8 /* PackageDescription */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9665D4A2AE96A45001D04A8 /* XCRemoteSwiftPackageReference "swift-package-manager" */;
-			productName = PackageDescription;
-		};
-		F9665D4D2AE96A45001D04A8 /* SwiftPM */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9665D4A2AE96A45001D04A8 /* XCRemoteSwiftPackageReference "swift-package-manager" */;
-			productName = SwiftPM;
-		};
-		F9665D4F2AE96A45001D04A8 /* SwiftPM-auto */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9665D4A2AE96A45001D04A8 /* XCRemoteSwiftPackageReference "swift-package-manager" */;
-			productName = "SwiftPM-auto";
-		};
 		F9665D522AE97717001D04A8 /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F9665D512AE97717001D04A8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
