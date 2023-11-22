@@ -18,6 +18,11 @@
 		F99026072B06C43100E50E45 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = F99026062B06C43100E50E45 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F990260A2B06C43100E50E45 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99026042B06C43100E50E45 /* StorageService.framework */; };
 		F990260B2B06C43100E50E45 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F99026042B06C43100E50E45 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F99026112B07DE0500E50E45 /* TestUserServicele.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99026102B07DE0500E50E45 /* TestUserServicele.swift */; };
+		F99026182B093A2500E50E45 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99026172B093A2500E50E45 /* Checker.swift */; };
+		F990261C2B0A0FFC00E50E45 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F990261B2B0A0FFC00E50E45 /* LoginViewController.swift */; };
+		F9988A8F2B0D2C2A0020F8AD /* PasswordUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9988A8E2B0D2C2A0020F8AD /* PasswordUser.swift */; };
+		F9988A912B0E4F560020F8AD /* CheckPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9988A902B0E4F560020F8AD /* CheckPass.swift */; };
 		F9A7F2F32ACEB9BA0008C4D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F22ACEB9BA0008C4D4 /* AppDelegate.swift */; };
 		F9A7F2F52ACEB9BA0008C4D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F42ACEB9BA0008C4D4 /* SceneDelegate.swift */; };
 		F9A7F2F72ACEB9BA0008C4D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7F2F62ACEB9BA0008C4D4 /* ViewController.swift */; };
@@ -73,6 +78,11 @@
 		F99025FD2B06337E00E50E45 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
 		F99026042B06C43100E50E45 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99026062B06C43100E50E45 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		F99026102B07DE0500E50E45 /* TestUserServicele.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserServicele.swift; sourceTree = "<group>"; };
+		F99026172B093A2500E50E45 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		F990261B2B0A0FFC00E50E45 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F9988A8E2B0D2C2A0020F8AD /* PasswordUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordUser.swift; sourceTree = "<group>"; };
+		F9988A902B0E4F560020F8AD /* CheckPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPass.swift; sourceTree = "<group>"; };
 		F9A7F2EF2ACEB9BA0008C4D4 /* Navigation_IOS_38_Ganbarova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation_IOS_38_Ganbarova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A7F2F22ACEB9BA0008C4D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A7F2F42ACEB9BA0008C4D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +151,28 @@
 			path = StorageService;
 			sourceTree = "<group>";
 		};
+		F99026132B0818C900E50E45 /* Swift Package Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F99026102B07DE0500E50E45 /* TestUserServicele.swift */,
+				F99025FD2B06337E00E50E45 /* CurrentUserService.swift */,
+				F99025FB2B06335700E50E45 /* User.swift */,
+				F99026162B093A0900E50E45 /* Password */,
+			);
+			path = "Swift Package Manager";
+			sourceTree = "<group>";
+		};
+		F99026162B093A0900E50E45 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				F99026172B093A2500E50E45 /* Checker.swift */,
+				F990261B2B0A0FFC00E50E45 /* LoginViewController.swift */,
+				F9988A8E2B0D2C2A0020F8AD /* PasswordUser.swift */,
+				F9988A902B0E4F560020F8AD /* CheckPass.swift */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
 		F9A7F2E62ACEB9BA0008C4D4 = {
 			isa = PBXGroup;
 			children = (
@@ -199,8 +231,7 @@
 				F9A7F30C2ACEBCEF0008C4D4 /* ProfileHeaderView.swift */,
 				F93BCF8F2ADEC21900733DF6 /* LogInViewController.swift */,
 				5CC458F12AF7E93C0021BEE0 /* PostTableViewCell.swift */,
-				F99025FB2B06335700E50E45 /* User.swift */,
-				F99025FD2B06337E00E50E45 /* CurrentUserService.swift */,
+				F99026132B0818C900E50E45 /* Swift Package Manager */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -378,6 +409,7 @@
 			files = (
 				F9A7F3122ACEBDE00008C4D4 /* PhotoTableViewCell.swift in Sources */,
 				F9A7F3142ACEBE200008C4D4 /* PhotoCollectionViewCell.swift in Sources */,
+				F9988A8F2B0D2C2A0020F8AD /* PasswordUser.swift in Sources */,
 				F93BCF942AE0306F00733DF6 /* Extension+UIViewController.swift in Sources */,
 				F93BCF902ADEC21900733DF6 /* LogInViewController.swift in Sources */,
 				F9A7F31D2ACEBF560008C4D4 /* UICollectionViewCell.swift in Sources */,
@@ -387,6 +419,7 @@
 				F9A7F3192ACEBEBE0008C4D4 /* UITableViewCell-Ext.swift in Sources */,
 				F9A7F3262ACEC0540008C4D4 /* FeedViewController.swift in Sources */,
 				F9A7F2F72ACEB9BA0008C4D4 /* ViewController.swift in Sources */,
+				F99026182B093A2500E50E45 /* Checker.swift in Sources */,
 				F9A7F2F32ACEB9BA0008C4D4 /* AppDelegate.swift in Sources */,
 				5C29C32F2AE3FC3700622034 /* String-Ext.swift in Sources */,
 				F9A7F30D2ACEBCEF0008C4D4 /* ProfileHeaderView.swift in Sources */,
@@ -395,6 +428,9 @@
 				F9A7F3172ACEBE850008C4D4 /* UIView-Ext.swift in Sources */,
 				F9A7F3222ACEBFE00008C4D4 /* InfoViewController.swift in Sources */,
 				F99025FE2B06337E00E50E45 /* CurrentUserService.swift in Sources */,
+				F990261C2B0A0FFC00E50E45 /* LoginViewController.swift in Sources */,
+				F99026112B07DE0500E50E45 /* TestUserServicele.swift in Sources */,
+				F9988A912B0E4F560020F8AD /* CheckPass.swift in Sources */,
 				F99025FC2B06335700E50E45 /* User.swift in Sources */,
 				F9A7F31B2ACEBF0B0008C4D4 /*  UIStackView-Ext.swift in Sources */,
 				F9A7F30B2ACEBC850008C4D4 /* ProfileViewController.swift in Sources */,

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import StorageService
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     var images: [String] = []
