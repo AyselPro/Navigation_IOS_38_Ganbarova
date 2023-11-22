@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 final class PhotosTableViewCell: UITableViewCell {
     private var imageViews = [UIImageView]()
