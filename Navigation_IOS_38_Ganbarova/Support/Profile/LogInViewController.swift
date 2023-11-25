@@ -76,9 +76,9 @@ class LogInViewController: UIViewController {
     //
     @objc private func buttonAction() {
         
-        let profileViewController = ProfileViewController()
+       // let profileViewController = ProfileViewController()
         
-        self.navigationController?.pushViewController(profileViewController, animated: true)
+       // self.navigationController?.pushViewController(profileViewController, animated: true)
         
     }
     

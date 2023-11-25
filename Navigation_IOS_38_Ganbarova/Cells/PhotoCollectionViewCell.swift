@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 final class PhotosCollectionViewCell: UICollectionViewCell {
     private var photoImageView:UIImageView = {
