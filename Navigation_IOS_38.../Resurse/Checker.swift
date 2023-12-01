@@ -7,30 +7,20 @@
 
 import Foundation
 
-protocol LogInViewControllerDelegate: AnyObject {
-    
-    func checkLoginAndPassword(stringToCheck: String, currenTime: Date) -> Bool
-    
-}
-
 class Checker {
-    
-    var delegate: LogInViewControllerDelegate?
+    //класс-это ссылочный тип, мы создаем delegate- образуем связь сильных ссылок между классами.(weak)
     
     static let shared = Checker()
     
     private let login: String = "Aysel1994"
     private let password: String = "{9Z!"
     
-    func check(loginPasswordAYSEL30 trierString: String, time: Date) -> Bool {
+    private init() {
         
-        let checkerString = (login + "\(time.hashValue)" + password)
+    }
+    
+    func check(login: String, password: String) -> Bool {
+        login == self.login && password == self.password
         
-        if trierString == checkerString {
-            return true
-        } else {
-            return false
-        }
     }
 }
-

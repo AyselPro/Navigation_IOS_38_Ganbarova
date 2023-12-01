@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol LogInViewControllerDelegate: AnyObject {
+    
+    func check(login: String, password: String) -> Bool
+    
+    }
+
 class LogInViewController: UIViewController {
+    
+    weak var delegate: LogInViewControllerDelegate?
     
     private let emailTextField: UITextField = {
         let textField = UITextField()
@@ -251,22 +259,35 @@ class LogInViewController: UIViewController {
 #endif
     }
 }
-    class LoginInspector: LogInViewControllerDelegate {
-        
-        func checkLoginAndPassword(stringToCheck: String, currenTime: Date) -> Bool {
-            return Checker.shared.check(loginPasswordAYSEL30: stringToCheck, time: currenTime)
-        }
+
+extension LogInViewController: LogInViewControllerDelegate {
+    func check(login: String, password: String) -> Bool {
+        return Checker.shared.check(login: "Aysel1994", password: "{9Z!")
     }
-    
+}
+
+class LoginInspector: LogInViewControllerDelegate {
+    func check(login: String, password: String) -> Bool {
+        return Checker.shared.check(login: "Aysel1994", password: "{9Z!")
+    }
+}
+
     protocol LogInFactory {
         func setLogInInspector() -> LoginInspector
+        
     }
     
     struct MyLogInFactory: LogInFactory {
-        private let inspector3000 = LoginInspector()
+        
+        private let inspector = LoginInspector()
         
         func setLogInInspector() -> LoginInspector {
-            return inspector3000
+            return inspector
         }
+   }
+
+extension UIView {
+    func addSubview(_ views: UIView...) {
+        views.forEach { addSubview($0) }
     }
-      
+}

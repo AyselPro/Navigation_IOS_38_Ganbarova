@@ -97,13 +97,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     private func setupTableView() {
         navigationController?.tabBarController?.tabBar.isHidden = false
         navigationController?.navigationBar.isHidden = true
-        
+
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: String(describing: PhotosTableViewCell.self))
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: reusedID)
-        tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: "cellID")
-        tableView.register( PhotosCollectionViewCell.self, forHeaderFooterViewReuseIdentifier: String(describing: PhotosCollectionViewCell.self))
-        tableView.dataSource = self
-        tableView.delegate = self
+        //tableView.register(
+                 //  ProfileHeaderView.self,
+                   // forHeaderFooterViewReuseIdentifier: String(describing: ProfileHeaderView.self)
+               // )
+       tableView.dataSource = self
+       tableView.delegate = self
     }
     
     private func check(user: String) {

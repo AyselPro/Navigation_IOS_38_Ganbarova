@@ -17,6 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         
+        // инициализация LoginInspector
+
+        if let tabController = window?.rootViewController as? UITabBarController, let loginNavigation = tabController.viewControllers?.last as? UINavigationController, let loginController = loginNavigation.viewControllers.first as? LogInViewController {
+            loginController.delegate = LoginInspector()
+            
+        }
+                    
         let window = UIWindow(windowScene: scene)
         
         // loginController.delegate = loginFactory.setLogInInspector()

@@ -8,7 +8,7 @@
 import UIKit
 import StorageService
 
-final class PhotosCollectionViewCell: UICollectionViewCell {
+final class PhotoCollectionViewCell: UICollectionViewCell {
     private var photoImageView:UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear

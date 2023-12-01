@@ -10,6 +10,9 @@ import StorageService
 import iOSIntPackage
 
 class PhotosViewController: UIViewController {
+    
+    var imagePublisherFacade: ImagePublisherFacade?
+    
     var images: [String] = []
     private let spasing = 8.0
     private let count = 3.0
@@ -23,7 +26,7 @@ class PhotosViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: spasing, left: spasing, bottom: spasing, right: spasing)
         
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: PhotosCollectionViewCell.identifier)
+        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
         return collectionView
     }()
     
@@ -63,7 +66,7 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifier, for: indexPath) as? PhotosCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -78,6 +81,14 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         let width = (widthCollectionView - fullSpasing) / count
         
         return CGSize(width: width, height: width)
+    }
+
+}
+
+extension PhotosViewController: ImageLibrarySubscriber {
+    
+    func receive(images: [UIImage]) {
+      //  self.images = images
     }
 
 }
