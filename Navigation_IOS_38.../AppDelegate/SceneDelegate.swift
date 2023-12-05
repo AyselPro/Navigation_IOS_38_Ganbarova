@@ -17,16 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         
-        // инициализация LoginInspector
-
-        if let tabController = window?.rootViewController as? UITabBarController, let loginNavigation = tabController.viewControllers?.last as? UINavigationController, let loginController = loginNavigation.viewControllers.first as? LogInViewController {
-            loginController.delegate = LoginInspector()
-            
-        }
-                    
         let window = UIWindow(windowScene: scene)
-        
-        // loginController.delegate = loginFactory.setLogInInspector()
         
         window.rootViewController = createTabBarController()
         window.makeKeyAndVisible()
@@ -44,6 +35,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func createProfileViewController() -> UINavigationController {
         let profileViewController = LogInViewController()
+        let factory = MyLogInFactory()
+        let inspector = factory.makeLoginInspector()
+        profileViewController.delegate = inspector
+        
         profileViewController.title = "Профиль"
         profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.circle"), tag: 1)
         return UINavigationController(rootViewController: profileViewController)

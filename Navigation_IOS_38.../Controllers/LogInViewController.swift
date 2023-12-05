@@ -8,13 +8,10 @@
 import UIKit
 
 protocol LogInViewControllerDelegate: AnyObject {
-    
     func check(login: String, password: String) -> Bool
-    
-    }
+}
 
-class LogInViewController: UIViewController {
-    
+final class LogInViewController: UIViewController {
     weak var delegate: LogInViewControllerDelegate?
     
     private let emailTextField: UITextField = {
@@ -108,18 +105,23 @@ class LogInViewController: UIViewController {
     //
     @objc private func buttonAction() {
         guard let login = emailTextField.text, !login.isEmpty else { return }
+        guard let password = passwordTextField.text, !password.isEmpty else { return }
         
-        let service = CurrentUserService.shared
+        let result = delegate?.check(login: login, password: password) ?? false
         
-        guard let user = service.currentUser(login: login) else {
+        if result {
+            //авторизация прошла удачно
+            guard let user = CurrentUserService.shared.currentUser(login: login) else {
+                errorAuth()
+                return
+            }
+            let profileViewController = ProfileViewController(user: user)
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+
+        } else {
+            //авторизация не прошла удачно
             errorAuth()
-            return
         }
-        
-        let profileViewController = ProfileViewController(user: user)
-        
-        self.navigationController?.pushViewController(profileViewController, animated: true)
-        
     }
     
     override func viewDidLoad() {
@@ -127,7 +129,7 @@ class LogInViewController: UIViewController {
         setupConstraints()
         addSubViews()
         logInButtonSuccessed()
-        
+        print(type(of: delegate))
     }
     
     private func setupConstraints() {
@@ -260,34 +262,14 @@ class LogInViewController: UIViewController {
     }
 }
 
-extension LogInViewController: LogInViewControllerDelegate {
-    func check(login: String, password: String) -> Bool {
-        return Checker.shared.check(login: "Aysel1994", password: "{9Z!")
-    }
-}
-
-class LoginInspector: LogInViewControllerDelegate {
-    func check(login: String, password: String) -> Bool {
-        return Checker.shared.check(login: "Aysel1994", password: "{9Z!")
-    }
-}
-
-    protocol LogInFactory {
-        func setLogInInspector() -> LoginInspector
-        
-    }
+protocol LogInFactory {
+    func makeLoginInspector() -> LoginInspector
     
-    struct MyLogInFactory: LogInFactory {
-        
-        private let inspector = LoginInspector()
-        
-        func setLogInInspector() -> LoginInspector {
-            return inspector
-        }
-   }
+}
 
-extension UIView {
-    func addSubview(_ views: UIView...) {
-        views.forEach { addSubview($0) }
+struct MyLogInFactory: LogInFactory {
+    func makeLoginInspector() -> LoginInspector {
+        return LoginInspector.shared
     }
 }
+

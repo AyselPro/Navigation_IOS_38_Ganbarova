@@ -11,16 +11,17 @@ class Checker {
     //класс-это ссылочный тип, мы создаем delegate- образуем связь сильных ссылок между классами.(weak)
     
     static let shared = Checker()
+    private init() { }
+    
     
     private let login: String = "Aysel1994"
-    private let password: String = "{9Z!"
+    private let password: String = "Z1994"
     
-    private init() {
-        
-    }
+   
     
     func check(login: String, password: String) -> Bool {
         login == self.login && password == self.password
         
     }
 }
+

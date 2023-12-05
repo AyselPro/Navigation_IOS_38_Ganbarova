@@ -31,7 +31,6 @@ final class PhotosTableViewCell: UITableViewCell {
         }
     }
     
-    
     private func setupCellEndConstraints() {
         
         //Label

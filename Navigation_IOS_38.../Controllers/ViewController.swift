@@ -99,19 +99,7 @@ class ViewController: UIViewController {
             let LogInViewController = LogInViewController()
             navigationController?.pushViewController(LogInViewController, animated: true)
         }
-        
-    //extension ViewController: LogInViewControllerDelegate {
-      //  func checkLoginAndPassword(stringToCheck: String, currenTime: Date) -> Bool
-            //print(#function)
-     //   }
-        
-        
-        
-        
-        
-        
-        
-        
+      
 }    /*
          // MARK: - Navigation
          
