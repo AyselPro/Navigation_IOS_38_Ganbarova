@@ -50,14 +50,6 @@ class ViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
     //1
     let color = UIColor(named: "#4885CC")
     
