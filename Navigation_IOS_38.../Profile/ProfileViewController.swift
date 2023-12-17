@@ -11,6 +11,17 @@ import iOSIntPackage
 
 class ProfileViewController: UIViewController {
 
+    let viewModel: ProfileVM
+    
+   // var coordinator: ProfileBaseCoordinator?
+    
+    private lazy var goToProfile2button: CustomButton = {
+        let btn = CustomButton.init(titleText: "Go to Detail Profile", titleColor: .white, backgroundColor: .black, tapAction: goToProfile2)
+        btn.layer.borderColor = UIColor.black.cgColor
+        btn.layer.borderWidth = 2
+        return btn
+    }()
+
     private let profileHeaderView: ProfileHeaderView = ProfileHeaderView()
     private var posts = Post.posts
     
@@ -46,9 +57,12 @@ class ProfileViewController: UIViewController {
     
     
     // MARK: - Init
-    init(user: User) {
+    init(user: User, viewModel: ProfileVM) {
         self.user = user
+        self.viewModel = viewModel
+       // self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
+        title = "Profile"
     }
     
     required init?(coder: NSCoder) {
@@ -63,6 +77,8 @@ class ProfileViewController: UIViewController {
         self.avatarImageView.image = user.avatar
         view.backgroundColor = .lightGray
         setupTableView()
+        view.backgroundColor = .red
+        setupUI()
         
         //TODO: установить таблицу по констрейнтам
         setupConstraints()
@@ -106,7 +122,24 @@ class ProfileViewController: UIViewController {
         ])
     }
     
+    private func  setupUI() {
+        view.addSubview(goToProfile2button)
+        
+        NSLayoutConstraint.activate([
+            goToProfile2button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            goToProfile2button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    @objc private func goToProfile2() {
+        viewModel.onDetail?()
+    }
 }
+
+
+
+
+
 
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
@@ -151,5 +184,3 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
-
-

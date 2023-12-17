@@ -16,7 +16,7 @@ class LoginCoordinator: LoginBaseCoordinator {
   
     var parentCoordinator: LoginBaseCoordinator?
     
-    lazy var profileCoordinator: ProfileBaseCoordinator = ProfileCoordinator()
+    lazy var profileCoordinator: ProfileBaseCoordinator = ProfileCoordinator.init(user: .init(login: "dsfs", firstName: "", avatar: UIImage(), status: ""), viewModel:ProfileVMImp())
     lazy var feedCoordinator: FeedBaseCoordinator = FeedCoordinator()
 
     lazy var rootViewController: UIViewController  = UITabBarController()
@@ -54,7 +54,7 @@ class LoginCoordinator: LoginBaseCoordinator {
     }
     
     func resetToRoot() -> Self {
-        feedCoordinator.resetToRoot()
+        profileCoordinator.resetToRoot()
         moveTo(flow: .profile)
         return self
     }

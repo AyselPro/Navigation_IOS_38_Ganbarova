@@ -13,21 +13,32 @@ class FeedViewController: UIViewController {
     
     private let stackView: UIStackView = .init()
     
-    var viewModel: FeedModel
+   // var viewModel: FeedModel
+    
+    let viewModel: FeedVM
+    
+   // var coordinator: FeedBaseCoordinator?
+    
+    private lazy var goToFeed2button: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Go to Detail", for: .normal)
+        btn.layer.borderColor = UIColor.black.cgColor
+        btn.layer.borderWidth = 2
+        btn.backgroundColor = .black
+        btn.addTarget(self, action: #selector(goToFeed2), for: .touchUpInside)
+        return btn
+    }()
     
     // Button for checking word
-    private lazy var checkGuessButton: UIButton  = {
-        let button = UIButton()
-        button.setTitle("Check", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .gray
+    private lazy var checkGuessButton: CustomButton  = {
+        let button = CustomButton.init(titleText: "Check", titleColor: .white, backgroundColor: .gray, tapAction: tapCheckAction)
         button.setTitleColor(.black, for: .selected)
         button.setTitleColor(.black, for: .highlighted)
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.masksToBounds = true
-        
         return button
     }()
     
@@ -35,19 +46,23 @@ class FeedViewController: UIViewController {
         let secretwordTextField = UITextField()
         secretwordTextField.placeholder = "Place for password to be checked"
         secretwordTextField.font = UIFont.systemFont(ofSize: 15)
-        secretwordTextField.leftView = UIView(frame:
-                                                CGRect(
-                                                    x: 0,
-                                                    y: 0,
-                                                    width: 10,
-                                                    height: 40
-                                                )
-        )
+        secretwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
         secretwordTextField.layer.cornerRadius = 12
         secretwordTextField.layer.borderWidth = 1
         secretwordTextField.layer.borderColor = UIColor.white.cgColor
         
         return secretwordTextField
+    }()
+    
+    private lazy var textField: UITextField = {
+        let textField = UITextField(frame: .init(x: 20, y: 100, width: view.bounds.width - 40, height: 40))
+        textField.placeholder = "Place for password to be checked"
+        textField.font = UIFont.systemFont(ofSize: 15)
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
+        textField.layer.cornerRadius = 12
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.white.cgColor
+        return textField
     }()
     
     private var resultLabel: UILabel = {
@@ -57,7 +72,6 @@ class FeedViewController: UIViewController {
         resultLabel.textColor = .black
         resultLabel.backgroundColor = .systemGray3
         resultLabel.textAlignment = .center
-        resultLabel.alpha = 0
         resultLabel.layer.cornerRadius = 20
         resultLabel.layer.borderWidth = 1
         resultLabel.layer.borderColor = UIColor.black.cgColor
@@ -68,44 +82,15 @@ class FeedViewController: UIViewController {
         return resultLabel
     }()
     
-    init(viewModel: FeedModel) {
+    init(viewModel: FeedVM) {
         self.viewModel = viewModel
+        // self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
+        title = "Feed"
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: Actions
-    private func actionSetStatusButtonPressed() {
-        secretwordTextField.endEditing(true)
-        
-        if secretwordTextField.text != nil && secretwordTextField.text?.count != 0 {
-            print("Password sent to server")
-            viewModel.check(word: secretwordTextField.text!)
-        }
-    }
-    
-    func setup() {
-        view.addSubviews(secretwordTextField, checkGuessButton, resultLabel)
-        // Constraints
-        NSLayoutConstraint.activate([
-            
-            checkGuessButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            checkGuessButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -50),
-            checkGuessButton.widthAnchor.constraint(equalToConstant: 100),
-            
-            secretwordTextField.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            secretwordTextField.centerYAnchor.constraint(equalTo: checkGuessButton.topAnchor, constant: -25),
-            secretwordTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.75),
-            secretwordTextField.heightAnchor.constraint(equalToConstant: 40),
-            
-            resultLabel.centerXAnchor.constraint(equalTo: secretwordTextField.centerXAnchor),
-            resultLabel.centerYAnchor.constraint(equalTo: secretwordTextField.centerYAnchor),
-            resultLabel.heightAnchor.constraint(equalToConstant: 50),
-            resultLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25)
-        ])
     }
     
     override func viewDidLoad() {
@@ -114,11 +99,40 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .lightGray
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemGray5
+        setupUI()
+        
+        view.addSubview(textField)
+        view.addSubview(checkGuessButton)
+        view.addSubview(resultLabel)
+        
+        NSLayoutConstraint.activate([
+            checkGuessButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 10),
+            checkGuessButton.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
+            checkGuessButton.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
+            checkGuessButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            resultLabel.topAnchor.constraint(equalTo: checkGuessButton.bottomAnchor, constant: 10),
+            resultLabel.leadingAnchor.constraint(equalTo: checkGuessButton.leadingAnchor),
+            resultLabel.trailingAnchor.constraint(equalTo: checkGuessButton.trailingAnchor),
+            resultLabel.heightAnchor.constraint(equalToConstant: 40),
+        ])
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(checkWord(_:)), name: FeedModel.key, object: nil)
         
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
+    }
+    
+        private func  setupUI() {
+            view.addSubview(goToFeed2button)
+            
+            NSLayoutConstraint.activate([
+                goToFeed2button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                goToFeed2button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200)
+            ])
         
         let firstButton = UIButton()
         let secondButton = UIButton()
@@ -132,6 +146,22 @@ class FeedViewController: UIViewController {
         
         firstButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         secondButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+    }
+    
+    @objc private func goToFeed2() {
+        viewModel.onNext?()
+    }
+    
+    @objc private func checkWord(_ notification: NSNotification) {
+        guard let object = notification.object as? Bool else { return }
+        object ? trueSelector() : falseSelector()
+    }
+    
+    
+    @objc private func tapCheckAction() {
+        guard let text = textField.text, !text.isEmpty else { return }
+        let feedModel = FeedModel()
+        feedModel.check(word: text)
     }
     
     //true- green

@@ -30,7 +30,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     private func createFeedViewController() -> UINavigationController {
-        //todo-проверка?( let feedViewController = FeedViewController(viewModel: FeedModel())
         let feedViewController = PostViewController(post: Post(author: "", description: "", image: "", likes: 0, views: 0))
         feedViewController.title = "Лента"
         feedViewController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "doc.richtext"), tag: 0)
@@ -39,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func createProfileViewController() -> UINavigationController {
-        let profileViewController = LogInViewController()
+        let profileViewController = LogInViewController.init(user: .init(login: "", firstName: "", avatar: .init(), status: ""), viewModel: ProfileVMImp.init())
         let factory = MyLogInFactory()
         let inspector = factory.makeLoginInspector()
         profileViewController.delegate = inspector

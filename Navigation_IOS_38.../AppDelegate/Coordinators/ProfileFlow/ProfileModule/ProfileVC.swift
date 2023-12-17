@@ -7,52 +7,52 @@
 
 import UIKit
 
-class ProfileVC: UIViewController {
+//class ProfileVC: UIViewController {
     
-    let viewModel: ProfileVM
+   // let viewModel: ProfileVM
     
    // var coordinator: ProfileBaseCoordinator?
     
-    private lazy var goToProfile2button: UIButton = {
-        let btn = UIButton()
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Go to Detail Profile", for: .normal)
-        btn.layer.borderColor = UIColor.black.cgColor
-        btn.layer.borderWidth = 2
-        btn.backgroundColor = .black
-        btn.addTarget(self, action: #selector(goToProfile2), for: .touchUpInside)
-        return btn
-    }()
+   // private lazy var goToProfile2button: UIButton = {
+    //    let btn = UIButton()
+    //    btn.translatesAutoresizingMaskIntoConstraints = false
+    //    btn.setTitle("Go to Detail Profile", for: .normal)
+    //    btn.layer.borderColor = UIColor.black.cgColor
+    //    btn.layer.borderWidth = 2
+    ///    btn.backgroundColor = .black
+    //    btn.addTarget(self, action: #selector(goToProfile2), for: .touchUpInside)
+       // return btn
+  //  }()
     
-    init(viewModel: ProfileVM) {
-        self.viewModel = viewModel
+   // init(viewModel: ProfileVM) {
+    //    self.viewModel = viewModel
        // self.coordinator = coordinator
-        super.init(nibName: nil, bundle: nil)
-        title = "Profile"
-    }
+     //   super.init(nibName: nil, bundle: nil)
+    //    title = "Profile"
+ //   }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+ //   required init?(coder: NSCoder) {
+    //    fatalError("init(coder:) has not been implemented")
+  //  }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
+   // override func viewDidLoad() {
+   //     super.viewDidLoad()
+       // view.backgroundColor = .red
         
-        setupUI()
-    }
+      //  setupUI()
+  //  }
     
-    private func  setupUI() {
-        view.addSubview(goToProfile2button)
+  //  private func  setupUI() {
+   //     view.addSubview(goToProfile2button)
         
-        NSLayoutConstraint.activate([
-            goToProfile2button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            goToProfile2button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-    }
+      //  NSLayoutConstraint.activate([
+       //     goToProfile2button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        //    goToProfile2button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+      //  ])
+  //  }
     
-    @objc private func goToProfile2() {
-        viewModel.onDetail?()
-    }
+ //   @objc private func goToProfile2() {
+   //     viewModel.onDetail?()
+  //  }
     
-}
+//}

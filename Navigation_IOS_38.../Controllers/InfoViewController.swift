@@ -9,18 +9,12 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
-    private lazy var button: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .blue
+    private lazy var button: CustomButton = {
+        let button = CustomButton(titleText: "Перейти на пост", titleColor: .lightGray, backgroundColor: .blue, tapAction: showACPressed)
         button.layer.cornerRadius = 12
-        button.setTitle("Перейти на пост", for: .normal)
-        button.setTitleColor(.lightGray, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
-        button.addTarget(self, action: #selector(showACPressed(_sender: )), for: .touchUpInside)
-        
+        button.addTarget(self, action: #selector(showACPressed), for: .touchUpInside)
         return button
-        
     }()
     
     private let label: UILabel = UILabel()
@@ -49,7 +43,7 @@ class InfoViewController: UIViewController {
         getUsers()
     }
     
-    @objc func showACPressed(_sender: UIButton) {
+    @objc func showACPressed() {
         let alertController = UIAlertController(title: "Вход", message: "введите данные для входа", preferredStyle: .alert)
         let  alerOkAction = UIAlertAction(title: "OK", style: .default, handler: {_ in
             print("нажали кнопку ОК")

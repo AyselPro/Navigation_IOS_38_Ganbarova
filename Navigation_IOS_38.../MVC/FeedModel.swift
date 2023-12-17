@@ -9,25 +9,11 @@ import Foundation
 
 //модель
 final class FeedModel {
-    
-    let notificationCenter = NotificationCenter.default
+    static let key: NSNotification.Name = .init(rawValue: "FeedModelKeyObserver")
     private let secretWord: String = "Conditional password"
     
-    init() {}
-    
     func check(word: String) {
-        
-        var notification = Notification(
-            name: NSNotification.Name(rawValue: "Clear notification"),
-            object: nil,
-            userInfo: nil)
-        
-        if word == secretWord {
-            notification.name = NSNotification.Name(rawValue: "Word is correct")
-        } else {
-            notification.name = NSNotification.Name(rawValue: "Word is not correct")
-        }
-        
-        notificationCenter.post(notification)
+        let result = word == secretWord
+        NotificationCenter.default.post(name: FeedModel.key, object: result)
     }
 }

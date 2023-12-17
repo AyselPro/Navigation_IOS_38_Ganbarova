@@ -12,7 +12,6 @@
 		F90C1FF12B17B822001C23F3 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = F90C1FF02B17B822001C23F3 /* iOSIntPackage */; };
 		F90C1FF92B1DD75E001C23F3 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90C1FF82B1DD75E001C23F3 /* FeedModel.swift */; };
 		F90C20012B1DD9DD001C23F3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90C20002B1DD9DD001C23F3 /* CustomButton.swift */; };
-		F90C20032B1DFC78001C23F3 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90C20022B1DFC78001C23F3 /* TextField.swift */; };
 		F97A0FA72B12A33F00B1B35C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A0FA62B12A33F00B1B35C /* AppDelegate.swift */; };
 		F97A0FA92B12A33F00B1B35C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A0FA82B12A33F00B1B35C /* SceneDelegate.swift */; };
 		F97A0FAB2B12A33F00B1B35C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A0FAA2B12A33F00B1B35C /* ViewController.swift */; };
@@ -31,7 +30,6 @@
 		F9A215D52B2853D600B90D9D /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A215D42B2853D600B90D9D /* FeedDetailVC.swift */; };
 		F9A215D72B28543A00B90D9D /* FeedDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A215D62B28543A00B90D9D /* FeedDetailVM.swift */; };
 		F9A215DA2B28547A00B90D9D /* FeedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A215D92B28547A00B90D9D /* FeedVM.swift */; };
-		F9A215DC2B28548B00B90D9D /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A215DB2B28548B00B90D9D /* FeedVC.swift */; };
 		F9BBDAA42B209B6E0053A2A0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BBDAA32B209B6E0053A2A0 /* NetworkService.swift */; };
 		F9F65CBA2B12A43600F98457 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F65CB92B12A43600F98457 /* CurrentUserService.swift */; };
 		F9F65CBC2B12A46F00F98457 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F65CBB2B12A46F00F98457 /* TestUserService.swift */; };
@@ -89,7 +87,6 @@
 		5CDAC83C2B248E6600B9C5E2 /* TestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
 		F90C1FF82B1DD75E001C23F3 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		F90C20002B1DD9DD001C23F3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		F90C20022B1DFC78001C23F3 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		F97A0FA32B12A33F00B1B35C /* Navigation_IOS_38....app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation_IOS_38....app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97A0FA62B12A33F00B1B35C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F97A0FA82B12A33F00B1B35C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +107,6 @@
 		F9A215D42B2853D600B90D9D /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 		F9A215D62B28543A00B90D9D /* FeedDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVM.swift; sourceTree = "<group>"; };
 		F9A215D92B28547A00B90D9D /* FeedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVM.swift; sourceTree = "<group>"; };
-		F9A215DB2B28548B00B90D9D /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		F9BBDAA32B209B6E0053A2A0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F9F65CB92B12A43600F98457 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
 		F9F65CBB2B12A46F00F98457 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
@@ -224,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				F90C1FF82B1DD75E001C23F3 /* FeedModel.swift */,
-				F90C20022B1DFC78001C23F3 /* TextField.swift */,
 				F90C20002B1DD9DD001C23F3 /* CustomButton.swift */,
 			);
 			path = MVC;
@@ -291,7 +286,6 @@
 		F9A215D82B28545E00B90D9D /* FeedModule */ = {
 			isa = PBXGroup;
 			children = (
-				F9A215DB2B28548B00B90D9D /* FeedVC.swift */,
 				F9A215D92B28547A00B90D9D /* FeedVM.swift */,
 			);
 			path = FeedModule;
@@ -529,11 +523,9 @@
 				F9F65CBA2B12A43600F98457 /* CurrentUserService.swift in Sources */,
 				F9F65CC32B12A56E00F98457 /* User.swift in Sources */,
 				F9F65CD82B12AD6300F98457 /* UIStackView-Ext.swift in Sources */,
-				F90C20032B1DFC78001C23F3 /* TextField.swift in Sources */,
 				F9F65CBC2B12A46F00F98457 /* TestUserService.swift in Sources */,
 				F9F65CDF2B12AE5200F98457 /* PostTableViewCell.swift in Sources */,
 				F9A215CB2B27436600B90D9D /* ProfileDetailVM.swift in Sources */,
-				F9A215DC2B28548B00B90D9D /* FeedVC.swift in Sources */,
 				F9A215C52B27392A00B90D9D /* ProfileVC.swift in Sources */,
 				F9A215BB2B27193B00B90D9D /* ProfileVM.swift in Sources */,
 				F9F65CF32B12B05300F98457 /* ProfileViewController.swift in Sources */,

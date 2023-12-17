@@ -40,6 +40,6 @@ class FeedViewModel: FeedViewOutput {
 
 func makeFeed() -> (viewModel: FeedModel, controller: FeedViewController) {
     let viewModel = FeedModel()
-    let controller = FeedViewController(viewModel: viewModel)
+    let controller = FeedViewController(viewModel: viewModel as! FeedVM)
     return (viewModel, controller)
 }

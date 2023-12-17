@@ -81,24 +81,24 @@ class ViewController: UIViewController {
             maker.trailing.equalToSuperview().inset(-16)
             maker.bottom.equalToSuperview().inset(-10)
         }
-            setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+//            setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         }
     
-    @objc func buttonPressed(_sender: UIButton) {
-        let vc = LogInViewController()
-        present(vc, animated: true)
-    }
-    
+//    @objc func buttonPressed(_sender: UIButton) {
+//        let vc = LogInViewController()
+//        present(vc, animated: true)
+//    }
+//
     
     //1
     let color = UIColor(named: "#4885CC")
     
     
-    //5
-    @objc private func tapBurButtonItamAction() {
-        let LogInViewController = LogInViewController()
-        navigationController?.pushViewController(LogInViewController, animated: true)
-    }
+//    //5
+//    @objc private func tapBurButtonItamAction() {
+//        let LogInViewController = LogInViewController()
+//        navigationController?.pushViewController(LogInViewController, animated: true)
+//    }
     
     
     

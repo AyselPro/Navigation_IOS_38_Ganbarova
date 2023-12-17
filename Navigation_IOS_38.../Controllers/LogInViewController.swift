@@ -14,6 +14,9 @@ protocol LogInViewControllerDelegate: AnyObject {
 final class LogInViewController: UIViewController {
     weak var delegate: LogInViewControllerDelegate?
     
+    private var user: User
+    let viewModel: ProfileVM
+    
     private let emailTextField: UITextField = {
         let textField = UITextField()
         textField.layer.borderColor = UIColor.lightGray.cgColor
@@ -64,19 +67,13 @@ final class LogInViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var button: UIButton = {
-        let button = UIButton()
+    private lazy var button: CustomButton = {
+        let button = CustomButton.init(titleText: "Log In", titleColor: .white, backgroundColor: .white, tapAction: buttonAction)
         button.layer.cornerRadius = 10
-        button.setTitle("Log In", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        
         button.setTitleColor(.white.withAlphaComponent(0.8), for: .selected)
         button.setTitleColor(.white.withAlphaComponent(0.8), for: .highlighted)
         button.setTitleColor(.white.withAlphaComponent(0.8), for: .disabled)
-        //
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
     
@@ -91,17 +88,26 @@ final class LogInViewController: UIViewController {
     }()
     
     // Brute Force Button
-    private var passwordHackingButton: UIButton  = {
-        
-        let button = UIButton()
-        button.setTitle("Guess the password", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .purple
-        button.setTitleColor(.darkGray, for: .selected)
-        button.setTitleColor(.darkGray, for: .highlighted)
-        
-        return button
-    }()
+   // private var passwordHackingButton: CustomButton  = {
+     //   let button = CustomButton(titleText: "Guess the password", titleColor: .white, backgroundColor: .purple, tapAction: buttonPressed)
+      //  button.setTitleColor(.darkGray, for: .selected)
+       // button.setTitleColor(.darkGray, for: .highlighted)
+      //  return button
+   // }()
+    
+    // MARK: - Init
+    init(user: User, viewModel: ProfileVM) {
+        self.user = user
+        self.viewModel = viewModel
+        // self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+        title = "Profile"
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //
     @objc private func buttonAction() {
         guard let login = emailTextField.text, !login.isEmpty else { return }
@@ -115,7 +121,7 @@ final class LogInViewController: UIViewController {
                 errorAuth()
                 return
             }
-            let profileViewController = ProfileViewController(user: user)
+            let profileViewController = ProfileViewController(user: user, viewModel: viewModel)
             self.navigationController?.pushViewController(profileViewController, animated: true)
             
         } else {
@@ -123,6 +129,11 @@ final class LogInViewController: UIViewController {
             errorAuth()
         }
     }
+    
+  //  @objc private func buttonPressed() {
+        
+        
+  //  }
     
     override func viewDidLoad() {
         super.viewDidLoad()

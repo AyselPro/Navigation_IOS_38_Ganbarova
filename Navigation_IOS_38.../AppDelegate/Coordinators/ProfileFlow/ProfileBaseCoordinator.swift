@@ -12,13 +12,26 @@ class ProfileCoordinator: ProfileBaseCoordinator {
     var parentCoordinator: LoginBaseCoordinator?
     lazy var rootViewController: UIViewController = UIViewController()
     
+    private var user: User
+    
+    // MARK: - Init
+    init(user: User, viewModel: ProfileVM) {
+        self.user = user
+        // self.coordinator = coordinator
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func start() -> UIViewController {
         let viewModel = ProfileVMImp()
         viewModel.onDetail = { [ weak self ] in
             self?.showDetailScreen()
         }
-        let module = ProfileVC(
-            viewModel: viewModel
+        let module = ProfileViewController(
+            //todo
+         user: user, viewModel: viewModel
         )
         
         rootViewController = UINavigationController(

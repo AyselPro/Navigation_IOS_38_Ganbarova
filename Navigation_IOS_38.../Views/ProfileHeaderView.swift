@@ -11,7 +11,7 @@ final class ProfileHeaderView: UIView {
     private let avatarImageView = UIImageView()
     private let fullNameLabel = UILabel()
     private let statusLabel = UILabel()
-    private let setStatusButton = UIButton()
+    private lazy var setStatusButton = CustomButton(titleText: "Set status", titleColor: UIColor.white, backgroundColor: .systemBlue, tapAction: buttonPressed)
     private let statusTextField = UITextField()
     
     override init(frame: CGRect) {
@@ -20,7 +20,6 @@ final class ProfileHeaderView: UIView {
         setupView()
         setupConstraint()
         setupShadow()
-        setupActionButton()
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -46,11 +45,7 @@ final class ProfileHeaderView: UIView {
         setStatusButton.layer.shadowOpacity = 0.7
     }
     
-    private func setupActionButton() {
-        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-    }
-    
-    @objc private func buttonPressed () {
+    @objc private func buttonPressed() {
         let text = statusTextField.text ?? ""
         print(text)
     }
@@ -73,11 +68,8 @@ final class ProfileHeaderView: UIView {
         statusLabel.textColor = .gray
         statusLabel.numberOfLines = 0
         
-        setStatusButton.backgroundColor = .systemBlue
-        setStatusButton.setTitleColor(UIColor.white, for: .normal)
         setStatusButton.setTitleColor(UIColor.red, for: .focused)
         setStatusButton.setTitleColor(UIColor.red, for: .highlighted)
-        setStatusButton.setTitle("Set status", for: .normal)
         setStatusButton.layer.cornerRadius = 4
         
         statusTextField.borderStyle = .roundedRect
