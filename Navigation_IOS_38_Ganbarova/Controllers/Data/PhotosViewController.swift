@@ -7,10 +7,16 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController {
-    var images: [String] = []
+class PhotosViewController: UIViewController, ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        self.imageCollection = images
+    }
+    
+    var imageCollection: [UIImage] = []
     private let spasing = 8.0
     private let count = 3.0
+    
+    var imagePublisherFacade: ImagePublisherFacade?
     
     private lazy var collectionView: UICollectionView = {
         
@@ -33,11 +39,21 @@ class PhotosViewController: UIViewController {
         setupView()
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = "Photo Gallery"
+        
+        imagePublisherFacade?.subscribe(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+            super.viewDidDisappear(animated)
+            
+            imagePublisherFacade?.removeSubscription(for: self)
+        
+            imagePublisherFacade?.rechargeImageLibrary()
     }
     
     func setupView() {
@@ -57,19 +73,19 @@ class PhotosViewController: UIViewController {
 //MARK: - Extensions
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return imageCollection.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifier, for: indexPath) as? PhotosCollectionViewCell else {
             return UICollectionViewCell()
         }
         
-        let value = images[indexPath.item]
-        cell.setupView(image: value)
+        let value = imageCollection[indexPath.item]
+        //cell.setupView(image: value)
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let fullSpasing = (count + 1) * spasing // 32
         let widthCollectionView = collectionView.bounds.width
@@ -77,5 +93,4 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         
         return CGSize(width: width, height: width)
     }
-
 }

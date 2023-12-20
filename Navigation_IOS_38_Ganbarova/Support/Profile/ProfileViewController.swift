@@ -6,26 +6,26 @@
 //
 
 import UIKit
+import iOSIntPackage
+import AVFoundation
 
 final class ProfileViewController: UIViewController {
     
     private let profileHeaderView: ProfileHeaderView = ProfileHeaderView()
-    private var arrayImages = [String]()
-    private let tableView = UITableView()
-    private let newButton = UIButton()
+    private var posts = Post.posts
+    private lazy var tableView = UITableView(frame: view.bounds, style: .grouped)
+    
+    private let facade = ImagePublisherFacade()
+
+    public typealias RepeatCount = Int
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
-        navigationController?.navigationBar.isHidden = true
+        setupConstraints()
+        setupTableView()
         
-        for i in 1...30 {
-            let string = "image-\(i)"
-            guard let _ = UIImage(named: string) else { continue }
-            arrayImages.append(string)
-        }
-        setupNavigation()
-        newButton.setTitle("Новая кнопка", for: .normal)
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,32 +33,24 @@ final class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-    private func setupNavigation() {
-        view.addSubviews(profileHeaderView, tableView, newButton)
+    private func setupConstraints() {
+        view.addSubviews(tableView)
         
         NSLayoutConstraint.activate([
-            profileHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            profileHeaderView.heightAnchor.constraint(equalToConstant: 220),
-
-            tableView.topAnchor.constraint(equalTo: profileHeaderView.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            newButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            newButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            newButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
         ])
-        
-        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.identifier)
-        tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: PhotoTableViewCell.identifier)
-        
+    }
+    
+    private func setupTableView() {
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
+        tableView.separatorStyle = .singleLine
+        tableView.separatorInset.right = 15
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
     }
 }
 
@@ -71,40 +63,64 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 1
-        default: return arrayImages.count
+        case 0: return 0
+        default: return posts.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: PhotosTableViewCell.identifier, for: indexPath) as? PhotosTableViewCell else { return UITableViewCell()}
-            cell.setupView(images: arrayImages)
-            return cell
+        case 0: return UITableViewCell()
             
         default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier, for: indexPath) as? PhotoTableViewCell else { return UITableViewCell()}
-            let name = arrayImages[indexPath.row]
-            cell.setupView(image: name)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell else { return UITableViewCell()}
+            let post = posts[indexPath.row]
+            cell.setupView(post: post)
             return cell
+            
+            let photoCollectionViewController = PhotosViewController()
+            
+            photoCollectionViewController.imagePublisherFacade = facade
+            
         }
+        // По таймеру добавляет новые случайные UIImage в библиотеку ImagePublisher
+        // Поскольку изображений в библиотеке немного, можно добавлять свои картинки
+        func addImagesWithTimer( _: TimeInterval,
+                                 repeat times: RepeatCount,
+                                 userImages: [UIImage]? = nil) {
+            var count = 0
+            Timer.scheduledTimer(
+                withTimeInterval: 0.5,
+                repeats: (10 != 0)) { [weak self] timer in
+                    count += 1
+                    
+                    if let images = userImages {
+                        guard let randomImage = images.randomElement() else { return }
+                        self.publisher.add(image: randomImage)
+                    } else {
+                        guard let imageCase = Images.allCases.randomElement() else { return }
+                        let libraryImage = imageCase.image(name: imageCase)
+                        self?.publisher.add(image: libraryImage)
+                    }
+                    
+                    if count == times {
+                        timer.invalidate()
+                    }
+               }
+         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 0 {
-            let vc = PhotosViewController()
-            vc.images = arrayImages
-            navigationController?.pushViewController(vc, animated: true)
-        }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section != 0 { return nil }
+        return profileHeaderView
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 { return UITableView.automaticDimension }
+        return 0
+    }
 }
-
-
-
 
 
 

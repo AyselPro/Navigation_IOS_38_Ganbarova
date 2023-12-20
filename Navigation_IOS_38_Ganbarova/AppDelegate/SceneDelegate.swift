@@ -11,19 +11,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
+    //    private let loginFactory = MyLogInFactory()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         
+        let appConfiguration: AppConfiguration = AppConfiguration.notFound
+        NetworkService.request(for: appConfiguration)
+        
         let window = UIWindow(windowScene: scene)
+        
         window.rootViewController = createTabBarController()
         window.makeKeyAndVisible()
         self.window = window
         
     }
     
+    
     private func createFeedViewController() -> UINavigationController {
+        
         let feedViewController = FeedViewController()
         feedViewController.title = "Лента"
         feedViewController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "doc.richtext"), tag: 0)
@@ -33,6 +40,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func createProfileViewController() -> UINavigationController {
         let profileViewController = LogInViewController()
+        
+        
         profileViewController.title = "Профиль"
         profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.circle"), tag: 1)
         return UINavigationController(rootViewController: profileViewController)
