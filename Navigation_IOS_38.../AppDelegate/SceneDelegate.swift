@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
         
-        window.rootViewController = authViewController()
+        window.rootViewController = jokesViewController()
         window.makeKeyAndVisible()
         self.window = window
     }
