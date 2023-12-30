@@ -14,9 +14,16 @@ final class FileManagerService: FileManagerServiceDelegate {
     static var shared: FileManagerService = FileManagerService()
     
     private let pathForFolder: String
-    //метод получения контента contentsOfDirectory
+    private let userDefaults: UserDefaults
+
+    var isSortedByAlphabet: Bool {
+        let value = userDefaults.value(forKey: .isSortedKey) as? Bool
+        return value ?? true
+    }
+    
     var items: [String] {
-        (try? FileManager.default.contentsOfDirectory(atPath: pathForFolder)) ?? []
+        let items = (try? FileManager.default.contentsOfDirectory(atPath: pathForFolder)) ?? []
+        return isSortedByAlphabet ? items.sorted() : items
     }
     
     var rootFolderName: String {
@@ -24,11 +31,13 @@ final class FileManagerService: FileManagerServiceDelegate {
         return url.lastPathComponent
     }
     
-    init(pathForFolder: String) {
+    init(pathForFolder: String, userDefaults: UserDefaults) {
+        self.userDefaults = userDefaults
         self.pathForFolder = pathForFolder
     }
     
     init() {
+        userDefaults = UserDefaults.standard
         pathForFolder = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     }
     
