@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E2839C33-6098-4628-A7D6-025B52064D29"
+            uuid = "33A7589A-76D6-4CAD-BB05-BC17A902FD6E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Navigation_IOS_38.../Services/CheckerService.swift"
+            filePath = "Navigation_IOS_38.../Realm/Services/JokeNetworkService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "signUp(email:password:completion:)"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "loadJoke(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD586D3D-893A-405F-BD4F-977E9BB04431"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Navigation_IOS_38.../Controllers/LogInViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "buttonAction()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
