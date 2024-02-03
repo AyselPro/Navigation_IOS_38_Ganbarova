@@ -70,9 +70,21 @@ final class PostTableViewCell: UITableViewCell {
         return imageView
     }()
     
+    private var actionOnDoubleTap: (() -> ())?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        let recogniser = UITapGestureRecognizer()
+        recogniser.numberOfTouchesRequired = 2
+        recogniser.addTarget(self, action: #selector(didDoubleTap))
+        addGestureRecognizer(recogniser)
+        
         setupView()
+    }
+    
+    @objc private func didDoubleTap() {
+        actionOnDoubleTap?()
     }
     
     required init?(coder: NSCoder) {
@@ -126,13 +138,13 @@ final class PostTableViewCell: UITableViewCell {
         ])
     }
     
-    func setupView(post: Post) {
+    func setupView(post: Post, actionOnDoubleTap: (() -> ())? = nil) {
         titleLabel.text = post.author
         avatarImageView.image = UIImage(named: post.image)
         descriptionLabel.text = post.description
         viewsLabel.text = "Views: " + String(post.views)
         likesLabel.text = "Likes: " + String(post.likes)
-        
+        self.actionOnDoubleTap = actionOnDoubleTap
         
         guard let image = UIImage(named: post.image) else { return }
         ImageProcessor().processImage(sourceImage: image, filter: .tonal) { image in

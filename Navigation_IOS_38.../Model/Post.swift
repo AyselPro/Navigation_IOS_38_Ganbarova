@@ -8,13 +8,13 @@
 import Foundation
 
 struct Post {
+    var id: String = UUID().uuidString
     var author: String
     var description: String
     var image: String
     var likes: Int
     var views: Int
     
-   
     static var posts: [Post] {
         return [
             .init(author: "Нетология. Меряем карьеру через образование.",

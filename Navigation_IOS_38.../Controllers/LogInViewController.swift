@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum LoginError: Error {
+    case userNotFound
+    case wrongPassword
+    case serverError
+    case tooStrongPassword
+}
+
 protocol LogInViewControllerDelegate: AnyObject {
     func check(login: String, password: String) -> Bool
 }
@@ -16,6 +23,8 @@ final class LogInViewController: UIViewController {
     
     private var user: User
     let viewModel: ProfileVM
+    
+    private let passwordUser = PasswordUser()
     
     private let emailTextField: UITextField = {
         let textField = UITextField()
@@ -111,7 +120,7 @@ final class LogInViewController: UIViewController {
     init(user: User, viewModel: ProfileVM) {
         self.user = user
         self.viewModel = viewModel
-       // self.coordinator = coordinator
+        // self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
         title = "Profile"
     }
@@ -141,7 +150,7 @@ final class LogInViewController: UIViewController {
             errorAuth()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()

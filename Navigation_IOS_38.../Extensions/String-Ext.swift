@@ -31,4 +31,7 @@ extension String {
             alpha: CGFloat(1.0)
         )
     }
+    
+    static let passwordKey = "password"
+    static let isSortedKey = "isSortedKey"
 }

@@ -51,6 +51,11 @@ final class ListViewController: UIViewController {
         navigationItem.rightBarButtonItems = [addFile, addFolder]
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
     @objc private func addFolderButtonDidTap() {
         let alert = UIAlertController(title: "Create folder", message: nil, preferredStyle: .alert)
 
@@ -124,7 +129,7 @@ extension ListViewController: UITableViewDelegate {
         guard fileManagerService.isDirectoryAtIndex(indexPath.row) else { return }
         
         let path = fileManagerService.getPath(at: indexPath.row)
-        let fileManagerService = FileManagerService(pathForFolder: path)
+        let fileManagerService = FileManagerService(pathForFolder: path, userDefaults: .standard)
         let nextListViewController = ListViewController(fileManagerService: fileManagerService)
         navigationController?.pushViewController(nextListViewController, animated: true)
     }
