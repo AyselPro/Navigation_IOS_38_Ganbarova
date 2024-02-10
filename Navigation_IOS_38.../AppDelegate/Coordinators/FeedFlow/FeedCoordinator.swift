@@ -10,7 +10,14 @@ import UIKit
 class FeedCoordinator: FeedBaseCoordinator {
     
     var parentCoordinator: LoginBaseCoordinator?
-    var rootViewController: UIViewController = UIViewController()
+    
+    var rootViewController = UIViewController()
+    
+    let navigationController: UINavigationController
+    
+    init(navigation: UINavigationController) {
+        self.navigationController = navigation
+    }
     
     func start() -> UIViewController {
         let viewModel = FeedVMImp()
@@ -19,7 +26,10 @@ class FeedCoordinator: FeedBaseCoordinator {
         }
         let view = FeedViewController(viewModel: viewModel)
         viewModel.view = view
-        rootViewController = UINavigationController(rootViewController: view)
+        
+        navigationController.setViewControllers([rootViewController], animated: true)
+        rootViewController = view
+        
         return rootViewController
     }
     

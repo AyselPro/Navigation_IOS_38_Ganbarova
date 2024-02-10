@@ -16,10 +16,18 @@ class LoginCoordinator: LoginBaseCoordinator {
   
     var parentCoordinator: LoginBaseCoordinator?
     
+    let navigationController: UINavigationController
+    
     lazy var profileCoordinator: ProfileBaseCoordinator = ProfileCoordinator.init(user: .init(login: "Aysel1994", firstName: "", avatar: UIImage(), status: ""), viewModel:ProfileVMImp())
-    lazy var feedCoordinator: FeedBaseCoordinator = FeedCoordinator()
+    lazy var feedCoordinator: FeedBaseCoordinator = FeedCoordinator(navigation: self.navigationController)
 
     lazy var rootViewController: UIViewController  = UITabBarController()
+    
+    
+    init(navigation: UINavigationController) {
+        self.navigationController = navigation
+        
+    }
     
     func start() -> UIViewController {
         let profileViewController = profileCoordinator.start()

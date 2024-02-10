@@ -24,7 +24,7 @@ final class LogInViewController: UIViewController {
     private var user: User
     let viewModel: ProfileVM
     
-    private let passwordUser = PasswordUser()
+  //  private let passwordUser = PasswordUser()
     
     private let emailTextField: UITextField = {
         let textField = UITextField()

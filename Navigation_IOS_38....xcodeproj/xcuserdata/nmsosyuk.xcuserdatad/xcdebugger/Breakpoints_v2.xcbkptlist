@@ -34,6 +34,38 @@
             endingLineNumber = "128"
             landmarkName = "buttonAction()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CD586D3D-893A-405F-BD4F-977E9BB04431 - 4d0b5b4c63640d53"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Navigation_IOS_38___.LogInViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Navigation_IOS_38___.LogInViewController&gt;"
+                  moduleName = "Navigation_IOS_38..."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nmsosyuk/Downloads/Telegram/Navigation_IOS_38...%204%203%202%202%202%202/Navigation_IOS_38.../Controllers/LogInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "CD586D3D-893A-405F-BD4F-977E9BB04431 - b2fb5e97be772d56"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Navigation_IOS_38___.LogInViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Navigation_IOS_38___.LogInViewController&gt;"
+                  moduleName = "Navigation_IOS_38..."
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nmsosyuk/Downloads/Telegram/Navigation_IOS_38...%204%203%202%202%202%202/Navigation_IOS_38.../Controllers/LogInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

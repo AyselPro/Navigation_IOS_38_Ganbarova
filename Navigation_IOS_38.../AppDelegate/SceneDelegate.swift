@@ -21,9 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
         
-        window.rootViewController = createCoreDataSceneViewController()
+        window.rootViewController = bruteForceController()
         window.makeKeyAndVisible()
         self.window = window
+    }
+    
+    private func bruteForceController() -> UIViewController {
+        let bruteForceViewController = PasswordUserController()
+        return bruteForceViewController
     }
     
     private func authViewController() -> UIViewController {
